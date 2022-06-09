@@ -1,0 +1,10 @@
+secret:
+  create: true
+
+cloud-director-named-disk-csi-driver:
+  secret:
+    create: false
+
+cloud-provider-for-cloud-director:
+  secret:
+    create: false

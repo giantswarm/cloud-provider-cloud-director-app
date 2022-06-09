@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: CSIDriver
+metadata:
+  name: named-disk.csi.cloud-director.vmware.com
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+spec:
+  attachRequired: {{ .Values.csidriver.attachRequired }}
+  podInfoOnMount: {{ .Values.csidriver.podInfoOnMount }}

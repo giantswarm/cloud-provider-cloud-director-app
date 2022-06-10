@@ -11,6 +11,9 @@ data:
       host: {{ .Values.cpiConfigmap.site }}
       org: {{ .Values.cpiConfigmap.org }}
       vdc: {{ .Values.cpiConfigmap.ovdc }}
+      vAppName: {{ .Values.cpiConfigmap.vAppName }}
+      network: {{ .Values.cpiConfigmap.ovdcNetwork }}
+      vipSubnet: {{ .Values.cpiConfigmap.vipSubnet }}
     loadbalancer:
       oneArm:
         startIP: {{ .Values.cpiConfigmap.oneArm.startIP }}
@@ -18,10 +21,6 @@ data:
       ports:
         http: 80
         https: 443
-      network: {{ .Values.cpiConfigmap.ovdcNetwork }}
-      vipSubnet: {{ .Values.cpiConfigmap.vipSubnet }}
       certAlias: {{ .Values.cpiConfigmap.clusterid }}-cert
-      enableVirtualServiceSharedIP: {{ .Values.cpiConfigmap.enableVirtualServiceSharedIP }}
-    clusterid: {{ .Values.cpiConfigmap.clusterid }}
-    vAppName: {{ .Values.cpiConfigmap.vAppName }}
+    clusterid: {{ .Values.cpiConfigmap.clusterid | quote }} 
 immutable: {{ .Values.cpiConfigmap.immutable }}

@@ -43,14 +43,11 @@ spec:
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            {{- with .Values.ccmDeployment.nodeSelector }}
-            nodeSelector:
-              {{- toYaml . | nindent 14 }}
-            {{- end }}
-            #nodeSelectorTerms:
-              #- matchExpressions:
-                #- key: node-role.kubernetes.io/master
-                  #operator: "Exists"
+            nodeSelectorTerms:
+              {{- with .Values.ccmDeployment.matchExpressions }}
+              - matchExpressions:
+                  {{- toYaml . | nindent 18 }}
+              {{- end }}
       volumes:
         - name: vcloud-ccm-config-volume
           configMap:

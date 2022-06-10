@@ -1,3 +1,9 @@
+basicAuthSecret:
+  create: true # Set to false if you create the secret somewhere else
+  username: ""
+  password: ""
+  refreshToken: ""
+  
 csiConfigmap:
   site: "" # VCD endpoint with the format https://VCD_HOST. No trailing '/'
   org: "" # VCD organization name where the cluster should be deployed
@@ -5,12 +11,6 @@ csiConfigmap:
   vAppName: "" # "name" field of VCDCluster object in management cluster
   clusterid: "" # "Infra Id" field of VCDCluster object in management cluster
   immutable: true
-
-basicAuthSecret:
-  create: true # Set to false if you create the secret somewhere else
-  username: ""
-  password: ""
-  refreshToken: ""
 
 controllerStatefulset:
   replicas: 1
@@ -26,7 +26,7 @@ controllerStatefulset:
     tag: v2.2.2
   csiPlugin:
     image: projects.registry.vmware.com/vmware-cloud-director/cloud-director-named-disk-csi-driver
-    tag: v1.2.0.latest
+    tag: 1.2.0.latest
 
 nodeDaemonset:
   dnsPolicy: Default
@@ -36,7 +36,7 @@ nodeDaemonset:
     tag: v2.2.0
   csiPlugin:
     image: projects.registry.vmware.com/vmware-cloud-director/cloud-director-named-disk-csi-driver
-    tag: v1.2.0.latest
+    tag: 1.2.0.latest
 
 csiDriver:
   attachRequired: true

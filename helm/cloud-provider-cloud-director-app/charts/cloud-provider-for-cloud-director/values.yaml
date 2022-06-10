@@ -1,3 +1,9 @@
+basicAuthSecret:
+  create: true # Set to false if you create the secret somewhere else
+  username: ""
+  password: ""
+  refreshToken: ""
+
 cpiConfigmap:
   site: "" # VCD endpoint with the format https://VCD_HOST. No trailing '/'
   org: "" # VCD organization name where the cluster should be deployed
@@ -6,25 +12,19 @@ cpiConfigmap:
   vipSubnet: "" # Virtual IP CIDR for the external network
   clusterid: "" # "Infra Id" in VCDCluster object in management cluster
   vAppName: ""
-  enableVirtualServiceSharedIP: false # supported for VCD >= 10.4
+  enableVirtualServiceSharedIP: false # supported for VCD >= 10.4 - not used yet
   oneArm:
     startIP: "192.168.8.2" # Will disappear in future versions
     endIP: "192.168.8.100" # Will disappear in future versions
   immutable: true
-
-basicAuthSecret:
-  create: true # Set to false if you create the secret somewhere else
-  username: ""
-  password: ""
-  refreshToken: ""
 
 ccmDeployment:
   replicas: 1
   revisionHistoryLimit: 2
   dnsPolicy: Default
   imagePullPolicy: IfNotPresent
-  image: harbor-repo.vmware.com/vcloud/cloud-provider-for-cloud-director
-  tag: v1.1.1
+  image: projects.registry.vmware.com/vmware-cloud-director/cloud-provider-for-cloud-director
+  tag: 1.1.1.latest
   tolerations:
     - key: node.cloudprovider.kubernetes.io/uninitialized
       value: "true"
@@ -33,5 +33,6 @@ ccmDeployment:
       operator: "Exists"
     - key: node-role.kubernetes.io/master
       effect: NoSchedule
-  nodeSelector:
-      node-role.kubernetes.io/master: ""
+  matchExpressions:
+    - key: node-role.kubernetes.io/master
+      operator: "Exists"

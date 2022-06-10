@@ -7,7 +7,7 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
 spec:
   serviceName: csi-vcd-controller-service
-  replicas: {{ .Values.statefulset.replicas }}
+  replicas: {{ .Values.controllerStatefulset.replicas }}
   selector:
     matchLabels:
       app: csi-vcd-controllerplugin
@@ -18,11 +18,11 @@ spec:
         {{- include "labels.common" . | nindent 8 }}
     spec:
       serviceAccount: csi-vcd-controller-sa
-      dnsPolicy: {{ .Values.statefulset.dnsPolicy }}
+      dnsPolicy: {{ .Values.controllerStatefulset.dnsPolicy }}
       containers:
         - name: csi-attacher
-          image: {{ .Values.statefulset.csiAttacher.image }}:{{ .Values.statefulset.csiAttacher.tag }}
-          imagePullPolicy: {{ .Values.statefulset.imagePullPolicy }}
+          image: {{ .Values.controllerStatefulset.csiAttacher.image }}:{{ .Values.controllerStatefulset.csiAttacher.tag }}
+          imagePullPolicy: {{ .Values.controllerStatefulset.imagePullPolicy }}
           args:
             - --csi-address=$(ADDRESS)
             - --timeout=180s
@@ -34,8 +34,8 @@ spec:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
         - name: csi-provisioner
-          image: {{ .Values.statefulset.csiProvisioner.image }}:{{ .Values.statefulset.csiProvisioner.tag }}
-          imagePullPolicy: {{ .Values.statefulset.imagePullPolicy }}
+          image: {{ .Values.controllerStatefulset.csiProvisioner.image }}:{{ .Values.controllerStatefulset.csiProvisioner.tag }}
+          imagePullPolicy: {{ .Values.controllerStatefulset.imagePullPolicy }}
           args:
             - --csi-address=$(ADDRESS)
             - --timeout=300s
@@ -52,8 +52,8 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: {{ .Values.statefulset.csiPlugin.image }}:{{ .Values.statefulset.csiPlugin.tag }}
-          imagePullPolicy: {{ .Values.statefulset.imagePullPolicy }}
+          image: {{ .Values.controllerStatefulset.csiPlugin.image }}:{{ .Values.controllerStatefulset.csiPlugin.tag }}
+          imagePullPolicy: {{ .Values.controllerStatefulset.imagePullPolicy }}
           command:
             - /opt/vcloud/bin/cloud-director-named-disk-csi-driver
             - --cloud-config=/etc/kubernetes/vcloud/vcloud-csi-config.yaml

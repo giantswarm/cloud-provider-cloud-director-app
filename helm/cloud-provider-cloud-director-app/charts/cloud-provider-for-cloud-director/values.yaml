@@ -1,4 +1,4 @@
-configmap:
+cpiConfigmap:
   site: "" # VCD endpoint with the format https://VCD_HOST. No trailing '/'
   org: "" # VCD organization name where the cluster should be deployed
   ovdc: "" # VCD virtual datacenter name where the cluster should be deployed
@@ -10,17 +10,28 @@ configmap:
   oneArm:
     startIP: "192.168.8.2" # Will disappear in future versions
     endIP: "192.168.8.100" # Will disappear in future versions
+  immutable: true
 
-secret:
+basicAuthSecret:
   create: true # Set to false if you create the secret somewhere else
   username: ""
   password: ""
   refreshToken: ""
 
-deployment:
+ccmDeployment:
   replicas: 1
   revisionHistoryLimit: 2
   dnsPolicy: Default
   imagePullPolicy: IfNotPresent
   image: harbor-repo.vmware.com/vcloud/cloud-provider-for-cloud-director
   tag: v1.1.1
+  tolerations:
+    - key: node.cloudprovider.kubernetes.io/uninitialized
+      value: "true"
+      effect: NoSchedule
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+    - key: node-role.kubernetes.io/master
+      effect: NoSchedule
+  nodeSelector:
+      node-role.kubernetes.io/master: ""

@@ -17,11 +17,11 @@ spec:
     spec:
       serviceAccount: csi-vcd-node-sa
       hostNetwork: true
-      dnsPolicy: {{ .Values.Daemonset.dnsPolicy }}
+      dnsPolicy: {{ .Values.nodeDaemonset.dnsPolicy }}
       containers:
         - name: node-driver-registrar
-          image: {{ .Values.Daemonset.nodeDriverRegistrar.image }}:{{ .Values.Daemonset.nodeDriverRegistrar.tag }}
-          imagePullPolicy: {{ .Values.Daemonset.imagePullPolicy }}
+          image: {{ .Values.nodeDaemonset.nodeDriverRegistrar.image }}:{{ .Values.nodeDaemonset.nodeDriverRegistrar.tag }}
+          imagePullPolicy: {{ .Values.nodeDaemonset.imagePullPolicy }}
           args:
             - "--v=5"
             - "--csi-address=$(ADDRESS)"
@@ -50,8 +50,8 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: {{ .Values.daemonset.csiPlugin.image }}:{{ .Values.daemonset.csiPlugin.tag }}
-          imagePullPolicy: {{ .Values.Daemonset.imagePullPolicy }}
+          image: {{ .Values.nodeDaemonset.csiPlugin.image }}:{{ .Values.nodeDaemonset.csiPlugin.tag }}
+          imagePullPolicy: {{ .Values.nodeDaemonset.imagePullPolicy }}
           command :
             - /opt/vcloud/bin/cloud-director-named-disk-csi-driver
             - --nodeid=$(NODE_ID)

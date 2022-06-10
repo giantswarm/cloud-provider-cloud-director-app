@@ -7,8 +7,8 @@ metadata:
   name: vmware-cloud-director-ccm
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: {{ .Values.deployment.replicas }}
-  revisionHistoryLimit: {{ .Values.deployment.revisionHistoryLimit }}
+  replicas: {{ .Values.ccmDeployment.replicas }}
+  revisionHistoryLimit: {{ .Values.ccmDeployment.revisionHistoryLimit }}
   selector:
     matchLabels:
       app: vmware-cloud-director-ccm
@@ -19,13 +19,13 @@ spec:
       annotations:
         scheduler.alpha.kubernetes.io/critical-pod: ''
     spec:
-      dnsPolicy: {{ .Values.deployment.dnsPolicy }}
+      dnsPolicy: {{ .Values.ccmDeployment.dnsPolicy }}
       hostNetwork: true
       serviceAccountName: cloud-controller-manager
       containers:
         - name: vmware-cloud-director-ccm
-          image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
-          imagePullPolicy: {{ .Values.deployment.imagePullPolicy }}
+          image: {{ .Values.ccmDeployment.image }}:{{ .Values.ccmDeployment.tag }}
+          imagePullPolicy: {{ .Values.ccmDeployment.imagePullPolicy }}
           command:
             - /opt/vcloud/bin/cloud-provider-for-cloud-director
             - --cloud-provider=vmware-cloud-director
@@ -36,21 +36,21 @@ spec:
               mountPath: /etc/kubernetes/vcloud
             - name: vcloud-ccm-vcloud-basic-auth-volume
               mountPath: /etc/kubernetes/vcloud/basic-auth
+      {{- with .Values.ccmDeployment.tolerations }}
       tolerations:
-        - key: node.cloudprovider.kubernetes.io/uninitialized
-          value: "true"
-          effect: NoSchedule
-        - key: "CriticalAddonsOnly"
-          operator: "Exists"
-        - key: node-role.kubernetes.io/master
-          effect: NoSchedule
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                - key: node-role.kubernetes.io/master
-                  operator: "Exists"
+            {{- with .Values.ccmDeployment.nodeSelector }}
+            nodeSelector:
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
+            #nodeSelectorTerms:
+              #- matchExpressions:
+                #- key: node-role.kubernetes.io/master
+                  #operator: "Exists"
       volumes:
         - name: vcloud-ccm-config-volume
           configMap:

@@ -8,9 +8,9 @@ metadata:
 data:
   vcloud-csi-config.yaml: |+
     vcd:
-      host: {{ .Values.configmap.site }}
-      org: {{ .Values.configmap.org }}
-      vdc: {{ .Values.configmap.ovdc }}
-      vAppName: {{ .Values.configmap.vAppName }}
-    clusterid: {{ .Values.configmap.clusterid }}
-immutable: true
+      host: {{ .Values.csiConfigmap.site }}
+      org: {{ .Values.csiConfigmap.org }}
+      vdc: {{ .Values.csiConfigmap.ovdc }}
+      vAppName: {{ .Values.csiConfigmap.vAppName }}
+    clusterid: {{ .Values.csiConfigmap.clusterid }}
+immutable: {{ .Values.csiConfigmap.immutable }}

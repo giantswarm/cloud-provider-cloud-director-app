@@ -8,20 +8,20 @@ metadata:
 data:
   vcloud-ccm-config.yaml: |+
     vcd:
-      host: {{ .Values.configmap.site }}
-      org: {{ .Values.configmap.org }}
-      vdc: {{ .Values.configmap.ovdc }}
+      host: {{ .Values.cpiConfigmap.site }}
+      org: {{ .Values.cpiConfigmap.org }}
+      vdc: {{ .Values.cpiConfigmap.ovdc }}
     loadbalancer:
       oneArm:
-        startIP: {{ .Values.configmap.oneArm.startIP }}
-        endIP: {{ .Values.configmap.oneArm.endIP }}
+        startIP: {{ .Values.cpiConfigmap.oneArm.startIP }}
+        endIP: {{ .Values.cpiConfigmap.oneArm.endIP }}
       ports:
         http: 80
         https: 443
-      network: {{ .Values.configmap.ovdcNetwork }}
-      vipSubnet: {{ .Values.configmap.vipSubnet }}
-      certAlias: {{ .Values.configmap.clusterid }}-cert
-      enableVirtualServiceSharedIP: {{ .Values.configmap.enableVirtualServiceSharedIP }}
-    clusterid: {{ .Values.configmap.clusterid }}
-    vAppName: {{ .Values.configmap.vAppName }}
-immutable: true
+      network: {{ .Values.cpiConfigmap.ovdcNetwork }}
+      vipSubnet: {{ .Values.cpiConfigmap.vipSubnet }}
+      certAlias: {{ .Values.cpiConfigmap.clusterid }}-cert
+      enableVirtualServiceSharedIP: {{ .Values.cpiConfigmap.enableVirtualServiceSharedIP }}
+    clusterid: {{ .Values.cpiConfigmap.clusterid }}
+    vAppName: {{ .Values.cpiConfigmap.vAppName }}
+immutable: {{ .Values.cpiConfigmap.immutable }}

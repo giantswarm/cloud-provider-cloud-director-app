@@ -1,5 +1,8 @@
 secret:
   create: true
+  username: ""
+  password: ""
+  refreshToken: ""
 
 cloud-director-named-disk-csi-driver:
   secret:

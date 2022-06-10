@@ -7,4 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### ADDED
+
+- Initial chart implementation.
+
 [Unreleased]: https://github.com/giantswarm/REPOSITORY_NAME/tree/main

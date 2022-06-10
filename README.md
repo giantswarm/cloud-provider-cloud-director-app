@@ -1,67 +1,38 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/{APP-NAME}-app.svg?style=shield)](https://circleci.com/gh/giantswarm/{APP-NAME}-app)
+# How to install
 
-# {APP-NAME} chart
+## Modify values.yaml files
 
-Giant Swarm offers a {APP-NAME} App which can be installed in workload clusters.
-Here we define the {APP-NAME} chart with its templates and default configuration.
+Below is the top level chart that spans both the CSI (cloud-director-named-disk-csi-driver) and the CPI (cloud-provider-for-cloud-director) in sub-charts. Note that upstream, the CSI and CPI are 2 distinct repositories that we merged together here as they will most likely be used together at all times.
 
-**What is this app?**
+`vi /helm/cloud-provider-cloud-director-app/values.yaml`
 
-**Why did we add it?**
+## Install with Helm
 
-**Who can use it?**
+```
+export KUBECONFIG=./<cluster>.kubeconfig 
 
-## Installing
-
-There are several ways to install this app onto a workload cluster.
-
-- [Using our web interface](https://docs.giantswarm.io/ui-api/web/app-platform/#installing-an-app).
-- By creating an [App resource](https://docs.giantswarm.io/ui-api/management-api/crd/apps.application.giantswarm.io/) in the management cluster as explained in [Getting started with App Platform](https://docs.giantswarm.io/app-platform/getting-started/).
-
-## Configuring
-
-### values.yaml
-
-**This is an example of a values file you could upload using our web interface.**
-
-```yaml
-# values.yaml
+helm install vcd-csi-cpi -n kube-system ./helm/cloud-provider-cloud-director-app/
 
 ```
 
-### Sample App CR and ConfigMap for the management cluster
+## How to use the CSI
 
-If you have access to the Kubernetes API on the management cluster, you could create
-the App CR and ConfigMap directly.
+Create a storage class with the provisioner and storageProfile fields like so:
 
-Here is an example that would install the app to
-workload cluster `abc12`:
-
-```yaml
-# appCR.yaml
-
+``` yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "false"
+  name: test-sc-xav
+provisioner: named-disk.csi.cloud-director.vmware.com
+reclaimPolicy: Delete
+parameters:
+  storageProfile: "vSAN-RAID-5"
+  filesystem: "ext4"
 ```
 
-```yaml
-# user-values-configmap.yaml
+The storageProfile field corresponds to the Storage Policy in VMware Cloud Director that you find under `Datacenter > your tenant > Storage > Storage policies`.
 
-```
-
-See our [full reference on how to configure apps](https://docs.giantswarm.io/app-platform/app-configuration/) for more details.
-
-## Compatibility
-
-This app has been tested to work with the following workload cluster release versions:
-
-- _add release version_
-
-## Limitations
-
-Some apps have restrictions on how they can be deployed.
-Not following these limitations will most likely result in a broken deployment.
-
-- _add limitation_
-
-## Credit
-
-- {APP HELM REPOSITORY}
+When you create a PV, it will appear under Named disks where you can find which VM it is connected to.

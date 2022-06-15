@@ -22,7 +22,7 @@ data:
       ports:
         http: 80
         https: 443
-      certAlias: {{ .clusterid | quote }}-cert
-    clusterid: {{ .clusterid | quote }} 
+      certAlias: {{ .clusterid }}-cert
+    clusterid: {{ .clusterid }} 
 immutable: {{ .immutable }}
 {{- end }}

@@ -1,5 +1,5 @@
 apiVersion: v2
-version: 0.0.0
+version: 0.0.1
 appVersion: 0.0.1
 name: cloud-provider-cloud-director-app
 description: A Helm chart for cloud-provider-cloud-director with CPI and CSI
@@ -17,6 +17,6 @@ maintainers:
 
 dependencies:
 - name: cloud-director-named-disk-csi-driver
-  version: 0.0.0
+  version: 0.0.1
 - name: cloud-provider-for-cloud-director
-  version: 0.0.0
+  version: 0.0.1

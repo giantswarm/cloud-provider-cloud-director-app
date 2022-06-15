@@ -6,21 +6,23 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
 data:
+{{- with .Values.cpiConfigmap }}
   vcloud-ccm-config.yaml: |+
     vcd:
-      host: {{ .Values.cpiConfigmap.site }}
-      org: {{ .Values.cpiConfigmap.org }}
-      vdc: {{ .Values.cpiConfigmap.ovdc }}
-      vAppName: {{ .Values.cpiConfigmap.vAppName }}
-      network: {{ .Values.cpiConfigmap.ovdcNetwork }}
-      vipSubnet: {{ .Values.cpiConfigmap.vipSubnet }}
+      host: {{ .site }}
+      org: {{ .org }}
+      vdc: {{ .ovdc }}
+      vAppName: {{ .vAppName }}
+      network: {{ .ovdcNetwork }}
+      vipSubnet: {{ .vipSubnet }}
     loadbalancer:
       oneArm:
-        startIP: {{ .Values.cpiConfigmap.oneArm.startIP }}
-        endIP: {{ .Values.cpiConfigmap.oneArm.endIP }}
+        startIP: {{ .oneArm.startIP }}
+        endIP: {{ .oneArm.endIP }}
       ports:
         http: 80
         https: 443
-      certAlias: {{ .Values.cpiConfigmap.clusterid }}-cert
-    clusterid: {{ .Values.cpiConfigmap.clusterid | quote }} 
-immutable: {{ .Values.cpiConfigmap.immutable }}
+      certAlias: {{ .clusterid | quote }}-cert
+    clusterid: {{ .clusterid | quote }} 
+immutable: {{ .immutable }}
+{{- end }}

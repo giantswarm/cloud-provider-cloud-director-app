@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cloud-director-named-disk-csi-driver
-version: 0.0.0
+version: 0.0.1
 appVersion: 1.2.0
 home: https://github.com/giantswarm/cloud-director-named-disk-csi-driver
 sources:

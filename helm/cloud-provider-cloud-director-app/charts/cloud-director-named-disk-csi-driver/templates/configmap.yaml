@@ -6,11 +6,13 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
 data:
+{{- with .Values.csiConfigmap }}
   vcloud-csi-config.yaml: |+
     vcd:
-      host: {{ .Values.csiConfigmap.site }}
-      org: {{ .Values.csiConfigmap.org }}
-      vdc: {{ .Values.csiConfigmap.ovdc }}
-      vAppName: {{ .Values.csiConfigmap.vAppName }}
-    clusterid: {{ .Values.csiConfigmap.clusterid | quote }}
-immutable: {{ .Values.csiConfigmap.immutable }}
+      host: {{ .site }}
+      org: {{ .org }}
+      vdc: {{ .ovdc }}
+      vAppName: {{ .vAppName }}
+    clusterid: {{ .clusterid | quote }}
+immutable: {{ .immutable }}
+{{- end }}

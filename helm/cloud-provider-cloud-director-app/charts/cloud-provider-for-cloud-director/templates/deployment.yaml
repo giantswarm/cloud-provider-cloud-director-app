@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vmware-cloud-director-ccm
+    {{- include "labels.common" . | nindent 4 }}
+  name: vmware-cloud-director-ccm
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.ccmDeployment.replicas }}
+  revisionHistoryLimit: {{ .Values.ccmDeployment.revisionHistoryLimit }}
+  selector:
+    matchLabels:
+      app: vmware-cloud-director-ccm
+  template:
+    metadata:
+      labels:
+        app: vmware-cloud-director-ccm
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ''
+    spec:
+      dnsPolicy: {{ .Values.ccmDeployment.dnsPolicy }}
+      hostNetwork: true
+      serviceAccountName: cloud-controller-manager
+      containers:
+        - name: vmware-cloud-director-ccm
+          image: {{ .Values.ccmDeployment.image }}:{{ .Values.ccmDeployment.tag }}
+          imagePullPolicy: {{ .Values.ccmDeployment.imagePullPolicy }}
+          command:
+            - /opt/vcloud/bin/cloud-provider-for-cloud-director
+            - --cloud-provider=vmware-cloud-director
+            - --cloud-config=/etc/kubernetes/vcloud/vcloud-ccm-config.yaml
+            - --allow-untagged-cloud=true
+          volumeMounts:
+            - name: vcloud-ccm-config-volume
+              mountPath: /etc/kubernetes/vcloud
+            - name: vcloud-ccm-vcloud-basic-auth-volume
+              mountPath: /etc/kubernetes/vcloud/basic-auth
+      {{- with .Values.ccmDeployment.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              {{- with .Values.ccmDeployment.matchExpressions }}
+              - matchExpressions:
+                  {{- toYaml . | nindent 18 }}
+              {{- end }}
+      volumes:
+        - name: vcloud-ccm-config-volume
+          configMap:
+            name: vcloud-ccm-configmap
+        - name: vcloud-ccm-vcloud-basic-auth-volume
+          secret:
+            secretName: vcloud-basic-auth

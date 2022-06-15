@@ -1,0 +1,15 @@
+apiVersion: v2
+name: cloud-director-named-disk-csi-driver
+version: 0.0.1
+appVersion: 1.2.0
+home: https://github.com/giantswarm/cloud-director-named-disk-csi-driver
+sources:
+- https://github.com/giantswarm/cloud-director-named-disk-csi-driver
+description: A helm chart for deploying the CSI of VMware Cloud Director (VCD) infrastructure provider (CAPVCD).
+keywords:
+- capvcd
+- vmware
+- cloud
+- csi
+- director
+- vcd

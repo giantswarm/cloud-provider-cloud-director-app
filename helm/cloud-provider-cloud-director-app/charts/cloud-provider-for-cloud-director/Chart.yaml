@@ -1,0 +1,15 @@
+apiVersion: v2
+name: cloud-provider-for-cloud-director
+version: 0.0.1
+appVersion: 1.1.1
+home: https://github.com/giantswarm/cloud-provider-for-cloud-director
+sources:
+- https://github.com/giantswarm/cloud-provider-for-cloud-director
+description: A helm chart for deploying the CPI of VMware Cloud Director (VCD) infrastructure provider (CAPVCD).
+keywords:
+- capvcd
+- vmware
+- cloud
+- cpi
+- director
+- vcd

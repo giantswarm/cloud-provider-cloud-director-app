@@ -1,0 +1,22 @@
+apiVersion: v2
+version: 0.0.1
+appVersion: 0.0.1
+name: cloud-provider-cloud-director-app
+description: A Helm chart for cloud-provider-cloud-director with CPI and CSI
+engine: gotpl
+home: https://github.com/giantswarm/cloud-provider-cloud-director-app
+
+sources:
+- https://github.com/giantswarm/cloud-provider-cloud-director-app
+
+annotations:
+  application.giantswarm.io/team: "rocket"
+maintainers:
+- name: Team Rocket
+  email: team-rocket@giantswarm.io
+
+dependencies:
+- name: cloud-director-named-disk-csi-driver
+  version: 0.0.1
+- name: cloud-provider-for-cloud-director
+  version: 0.0.1

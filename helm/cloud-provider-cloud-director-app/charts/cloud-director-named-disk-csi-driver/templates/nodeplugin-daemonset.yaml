@@ -1,0 +1,117 @@
+kind: DaemonSet
+apiVersion: apps/v1
+metadata:
+  name: csi-vcd-nodeplugin
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      app: csi-vcd-nodeplugin
+  template:
+    metadata:
+      labels:
+        app: csi-vcd-nodeplugin
+        {{- include "labels.common" . | nindent 8 }}
+    spec:
+      serviceAccount: csi-vcd-node-sa
+      hostNetwork: true
+      dnsPolicy: {{ .Values.nodeDaemonset.dnsPolicy }}
+      containers:
+        - name: node-driver-registrar
+          image: {{ .Values.nodeDaemonset.nodeDriverRegistrar.image }}:{{ .Values.nodeDaemonset.nodeDriverRegistrar.tag }}
+          imagePullPolicy: {{ .Values.nodeDaemonset.imagePullPolicy }}
+          args:
+            - "--v=5"
+            - "--csi-address=$(ADDRESS)"
+            - "--kubelet-registration-path=$(DRIVER_REG_SOCK_PATH)"
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "rm -rf /registration/named-disk.csi.cloud-director.vmware.com /registration/named-disk.csi.cloud-director.vmware.com-reg.sock"]
+          env:
+            - name: ADDRESS
+              value: /csi/csi.sock
+            - name: DRIVER_REG_SOCK_PATH
+              value: /var/lib/kubelet/csi-plugins/named-disk.csi.cloud-director.vmware.com/csi.sock
+            - name: NODE_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: socket-dir
+              mountPath: /csi
+            - name: registration-dir
+              mountPath: /registration
+        - name: vcd-csi-plugin
+          securityContext:
+            privileged: true
+            capabilities:
+              add: ["SYS_ADMIN"]
+            allowPrivilegeEscalation: true
+          image: {{ .Values.nodeDaemonset.csiPlugin.image }}:{{ .Values.nodeDaemonset.csiPlugin.tag }}
+          imagePullPolicy: {{ .Values.nodeDaemonset.imagePullPolicy }}
+          command :
+            - /opt/vcloud/bin/cloud-director-named-disk-csi-driver
+            - --nodeid=$(NODE_ID)
+            - --endpoint=$(CSI_ENDPOINT)
+            - --cloud-config=/etc/kubernetes/vcloud/vcloud-csi-config.yaml
+            - --v=5
+          env:
+            - name: NODE_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: CSI_ENDPOINT
+              value: unix://csi/csi.sock
+          volumeMounts:
+            - name: socket-dir
+              mountPath: /csi
+            - name: kubelet-dir
+              mountPath: /var/lib/kubelet/pods
+              mountPropagation: "Bidirectional"
+            - name: pods-cloud-data
+              mountPath: /var/lib/cloud/data
+              readOnly: true
+            - name: pods-probe-dir
+              mountPath: /dev
+              mountPropagation: "HostToContainer"
+            - name: pv-dir
+              mountPath: /var/lib/kubelet/plugins/kubernetes.io/csi/pv
+              mountPropagation: "Bidirectional"
+            - name: vcloud-csi-config-volume
+              mountPath: /etc/kubernetes/vcloud
+            - name: vcloud-basic-auth-volume
+              mountPath: /etc/kubernetes/vcloud/basic-auth
+      volumes:
+        - name: socket-dir
+          hostPath:
+            path: /var/lib/kubelet/csi-plugins/named-disk.csi.cloud-director.vmware.com
+            type: DirectoryOrCreate
+        - name: registration-dir
+          hostPath:
+            path: /var/lib/kubelet/plugins_registry/
+            type: DirectoryOrCreate
+        - name: kubelet-dir
+          hostPath:
+            path: /var/lib/kubelet/pods
+            type: DirectoryOrCreate
+        - name: pods-cloud-data
+          hostPath:
+            path: /var/lib/cloud/data
+            type: DirectoryOrCreate
+        - name: pods-probe-dir
+          hostPath:
+            path: /dev
+            type: Directory
+        - name: pv-dir
+          hostPath:
+            path: /var/lib/kubelet/plugins/kubernetes.io/csi/pv
+            type: DirectoryOrCreate
+        - name: vcloud-csi-config-volume
+          configMap:
+            name: vcloud-csi-configmap
+        - name: vcloud-basic-auth-volume
+          secret:
+            secretName: vcloud-basic-auth

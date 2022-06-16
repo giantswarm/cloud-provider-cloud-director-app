@@ -1,8 +1,9 @@
-basicAuthSecret:
-  create: true
-  username: ""
-  password: ""
-  refreshToken: ""
+global:
+  basicAuthSecret:
+    create: true
+    username: ""
+    password: ""
+    refreshToken: ""
 
 cloud-director-named-disk-csi-driver:
   basicAuthSecret:

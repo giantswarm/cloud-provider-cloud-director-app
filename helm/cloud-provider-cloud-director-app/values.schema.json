@@ -2,23 +2,6 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "basicAuthSecret": {
-            "type": "object",
-            "properties": {
-                "create": {
-                    "type": "boolean"
-                },
-                "password": {
-                    "type": "string"
-                },
-                "refreshToken": {
-                    "type": "string"
-                },
-                "username": {
-                    "type": "string"
-                }
-            }
-        },
         "cloud-director-named-disk-csi-driver": {
             "type": "object",
             "properties": {
@@ -85,6 +68,28 @@
                             "type": "string"
                         },
                         "vipSubnet": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "global": {
+            "type": "object",
+            "properties": {
+                "basicAuthSecret": {
+                    "type": "object",
+                    "properties": {
+                        "create": {
+                            "type": "boolean"
+                        },
+                        "password": {
+                            "type": "string"
+                        },
+                        "refreshToken": {
+                            "type": "string"
+                        },
+                        "username": {
                             "type": "string"
                         }
                     }

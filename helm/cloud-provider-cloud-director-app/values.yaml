@@ -23,6 +23,16 @@ cloud-director-named-disk-csi-driver:
   basicAuthSecret:
     create: false # overrides create value in global vars
 
+  controllerStatefulset:
+    csiAttacher:
+      image: quay.io/giantswarm/csi-attacher
+    csiProvisioner:
+      image: quay.io/giantswarm/csi-provisioner
+
+  nodeDaemonset:
+    nodeDriverRegistrar:
+      image: quay.io/giantswarm/csi-node-driver-registrar
+
 cloud-provider-for-cloud-director:
   basicAuthSecret:
     create: false # overrides create value in global vars

@@ -12,6 +12,40 @@
                             "type": "boolean"
                         }
                     }
+                },
+                "controllerStatefulset": {
+                    "type": "object",
+                    "properties": {
+                        "csiAttacher": {
+                            "type": "object",
+                            "properties": {
+                                "image": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "csiProvisioner": {
+                            "type": "object",
+                            "properties": {
+                                "image": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "nodeDaemonset": {
+                    "type": "object",
+                    "properties": {
+                        "nodeDriverRegistrar": {
+                            "type": "object",
+                            "properties": {
+                                "image": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },

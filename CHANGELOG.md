@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### ADDED
+### Changed
+
+- Updated repo config to push to default app catalog.
+
+### Added
 
 - Initial chart implementation.
 

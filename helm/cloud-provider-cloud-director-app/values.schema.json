@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "basicAuthSecret": {
+            "type": "object",
+            "properties": {
+                "create": {
+                    "type": "boolean"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "refreshToken": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "cloud-director-named-disk-csi-driver": {
+            "type": "object",
+            "properties": {
+                "basicAuthSecret": {
+                    "type": "object",
+                    "properties": {
+                        "create": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "csiConfigmap": {
+                    "type": "object",
+                    "properties": {
+                        "clusterid": {
+                            "type": "string"
+                        },
+                        "org": {
+                            "type": "string"
+                        },
+                        "ovdc": {
+                            "type": "string"
+                        },
+                        "site": {
+                            "type": "string"
+                        },
+                        "vAppName": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "cloud-provider-for-cloud-director": {
+            "type": "object",
+            "properties": {
+                "basicAuthSecret": {
+                    "type": "object",
+                    "properties": {
+                        "create": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "cpiConfigmap": {
+                    "type": "object",
+                    "properties": {
+                        "clusterid": {
+                            "type": "string"
+                        },
+                        "org": {
+                            "type": "string"
+                        },
+                        "ovdc": {
+                            "type": "string"
+                        },
+                        "ovdcNetwork": {
+                            "type": "string"
+                        },
+                        "site": {
+                            "type": "string"
+                        },
+                        "vAppName": {
+                            "type": "string"
+                        },
+                        "vipSubnet": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

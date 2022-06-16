@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updated repo config to push to default app catalog.
+- Move shared vars under the `global` value key.
 
 ### Added
 

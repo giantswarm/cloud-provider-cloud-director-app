@@ -12,26 +12,6 @@
                             "type": "boolean"
                         }
                     }
-                },
-                "csiConfigmap": {
-                    "type": "object",
-                    "properties": {
-                        "clusterid": {
-                            "type": "string"
-                        },
-                        "org": {
-                            "type": "string"
-                        },
-                        "ovdc": {
-                            "type": "string"
-                        },
-                        "site": {
-                            "type": "string"
-                        },
-                        "vAppName": {
-                            "type": "string"
-                        }
-                    }
                 }
             }
         },
@@ -43,32 +23,6 @@
                     "properties": {
                         "create": {
                             "type": "boolean"
-                        }
-                    }
-                },
-                "cpiConfigmap": {
-                    "type": "object",
-                    "properties": {
-                        "clusterid": {
-                            "type": "string"
-                        },
-                        "org": {
-                            "type": "string"
-                        },
-                        "ovdc": {
-                            "type": "string"
-                        },
-                        "ovdcNetwork": {
-                            "type": "string"
-                        },
-                        "site": {
-                            "type": "string"
-                        },
-                        "vAppName": {
-                            "type": "string"
-                        },
-                        "vipSubnet": {
-                            "type": "string"
                         }
                     }
                 }
@@ -90,6 +44,49 @@
                             "type": "string"
                         },
                         "username": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "vcdConfig": {
+                    "type": "object",
+                    "properties": {
+                        "clusterid": {
+                            "type": "string"
+                        },
+                        "enableVirtualServiceSharedIP": {
+                            "type": "boolean"
+                        },
+                        "immutable": {
+                            "type": "boolean"
+                        },
+                        "oneArm": {
+                            "type": "object",
+                            "properties": {
+                                "endIP": {
+                                    "type": "string"
+                                },
+                                "startIP": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "org": {
+                            "type": "string"
+                        },
+                        "ovdc": {
+                            "type": "string"
+                        },
+                        "ovdcNetwork": {
+                            "type": "string"
+                        },
+                        "site": {
+                            "type": "string"
+                        },
+                        "vAppName": {
+                            "type": "string"
+                        },
+                        "vipSubnet": {
                             "type": "string"
                         }
                     }

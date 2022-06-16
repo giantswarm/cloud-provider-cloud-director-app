@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### ADDED
+### Changed
+
+- Updated repo config to push to default app catalog.
+- Move shared vars under the `global` value key.
+
+### Added
 
 - Initial chart implementation.
 
-[Unreleased]: https://github.com/giantswarm/REPOSITORY_NAME/tree/main
+[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/tree/main

@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
 data:
-{{- with .Values.csiConfigmap }}
+{{- with .Values.global.vcdConfig }}
   vcloud-csi-config.yaml: |+
     vcd:
       host: {{ .site }}

@@ -1,9 +1,3 @@
-basicAuthSecret:
-  create: true # Set to false if you create the secret somewhere else
-  username: ""
-  password: ""
-  refreshToken: ""
-  
 csiConfigmap:
   site: "" # VCD endpoint with the format https://VCD_HOST. No trailing '/'
   org: "" # VCD organization name where the cluster should be deployed

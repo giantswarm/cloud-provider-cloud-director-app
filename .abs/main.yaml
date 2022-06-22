@@ -2,3 +2,6 @@ replace-chart-version-with-git: true
 generate-metadata: true
 chart-dir: ./helm/cloud-provider-cloud-director-app
 destination: ./build
+
+# https://app.circleci.com/pipelines/github/giantswarm/cloud-provider-cloud-director-app/15/workflows/c984c767-536e-495e-b7c2-d7c92c5880d0/jobs/16
+skip-steps: ["validate", "static_check"]

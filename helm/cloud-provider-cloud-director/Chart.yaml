@@ -1,7 +1,7 @@
 apiVersion: v2
 version: 0.0.1
 appVersion: 0.0.1
-name: cloud-provider-cloud-director-app
+name: cloud-provider-cloud-director
 description: A Helm chart for cloud-provider-cloud-director with CPI and CSI
 engine: gotpl
 home: https://github.com/giantswarm/cloud-provider-cloud-director-app

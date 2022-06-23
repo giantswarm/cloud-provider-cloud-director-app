@@ -126,6 +126,9 @@
                     }
                 }
             }
+        },
+        "serviceType": {
+            "type": "string"
         }
     }
 }

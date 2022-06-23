@@ -1,3 +1,5 @@
+serviceType: "managed"
+
 global:
   basicAuthSecret:
     create: true

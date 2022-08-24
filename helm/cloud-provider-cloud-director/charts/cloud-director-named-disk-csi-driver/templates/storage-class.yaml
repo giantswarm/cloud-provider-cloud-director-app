@@ -11,8 +11,8 @@ metadata:
 provisioner: named-disk.csi.cloud-director.vmware.com
 reclaimPolicy: delete
 parameters:
-  storageProfile: {{ .VcdStorageProfileName }}
-  filesystem: {{ .FileSystemFormat }}
+  storageProfile: {{ .vcdStorageProfileName }}
+  filesystem: {{ .fileSystemFormat }}
 ---
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -25,7 +25,7 @@ metadata:
 provisioner: named-disk.csi.cloud-director.vmware.com
 reclaimPolicy: retain
 parameters:
-  storageProfile: {{ .VcdStorageProfileName }}
-  filesystem: {{ .FileSystemFormat }}
+  storageProfile: {{ .vcdStorageProfileName }}
+  filesystem: {{ .fileSystemFormat }}
 {{- end }}
 {{- end }}

@@ -18,7 +18,7 @@ helm install vcd-csi-cpi -n kube-system ./helm/cloud-provider-cloud-director-app
 
 ### How to use the CSI
 
-Create a storage class with the provisioner and storageProfile fields like so:
+Create a storage class with the provisioner and storageProfile fields like so if it wasn't created by the chart:
 
 ``` yaml
 kind: StorageClass

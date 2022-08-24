@@ -68,6 +68,42 @@
                             }
                         }
                     }
+                },
+                "storageClass": {
+                    "type": "object",
+                    "properties": {
+                        "delete": {
+                            "type": "object",
+                            "properties": {
+                                "fileSystem": {
+                                    "type": "string"
+                                },
+                                "isDefault": {
+                                    "type": "boolean"
+                                },
+                                "vcdStorageProfileName": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "retain": {
+                            "type": "object",
+                            "properties": {
+                                "fileSystem": {
+                                    "type": "string"
+                                },
+                                "isDefault": {
+                                    "type": "boolean"
+                                },
+                                "vcdStorageProfileName": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },

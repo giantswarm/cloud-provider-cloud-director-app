@@ -39,6 +39,17 @@ cloud-director-named-disk-csi-driver:
       image: quay.io/giantswarm/csi-cloud-director
       tag: 1.2.0.latest
 
+  storageClass:
+    enabled: true
+    delete:
+      isDefault: true
+      vcdStorageProfileName: ""
+      fileSystem: "ext4"
+    retain:
+      isDefault: false
+      vcdStorageProfileName: ""
+      fileSystem: "ext4"
+
 cloud-provider-for-cloud-director:
   
   basicAuthSecret:

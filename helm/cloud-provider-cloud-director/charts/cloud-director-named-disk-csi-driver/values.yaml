@@ -27,3 +27,14 @@ nodeDaemonset:
 csiDriver:
   attachRequired: true
   podInfoOnMount: false
+
+storageClass:
+  enabled: true
+  delete:
+    isDefault: true
+    vcdStorageProfileName: ""
+    fileSystem: "ext4"
+  retain:
+    isDefault: false
+    vcdStorageProfileName: ""
+    fileSystem: "ext4"

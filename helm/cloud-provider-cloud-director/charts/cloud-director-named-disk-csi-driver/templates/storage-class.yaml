@@ -1,0 +1,31 @@
+{{- with .Values.storageClass }}
+{{- if .enabled }}
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  {{- if .delete.isDefault }}
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+  {{- end }}
+  name: csi-vcd-sc-delete
+provisioner: named-disk.csi.cloud-director.vmware.com
+reclaimPolicy: delete
+parameters:
+  storageProfile: {{ .VcdStorageProfileName }}
+  filesystem: {{ .FileSystemFormat }}
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  {{- if .retain.isDefault }}
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+  {{- end }}
+  name: csi-vcd-sc-retain
+provisioner: named-disk.csi.cloud-director.vmware.com
+reclaimPolicy: retain
+parameters:
+  storageProfile: {{ .VcdStorageProfileName }}
+  filesystem: {{ .FileSystemFormat }}
+{{- end }}
+{{- end }}

@@ -1,8 +1,6 @@
 global:
   basicAuthSecret:
     create: true
-    username: ""
-    password: ""
     refreshToken: ""
 
   vcdConfig:
@@ -43,11 +41,11 @@ cloud-director-named-disk-csi-driver:
     enabled: true
     delete:
       isDefault: true
-      vcdStorageProfileName: ""
+      vcdStorageProfileName: ""  # Default SP used if empty.
       fileSystem: "ext4"
     retain:
       isDefault: false
-      vcdStorageProfileName: ""
+      vcdStorageProfileName: ""  # Default SP used if empty.
       fileSystem: "ext4"
 
 cloud-provider-for-cloud-director:

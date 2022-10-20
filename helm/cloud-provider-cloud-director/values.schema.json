@@ -140,13 +140,7 @@
                         "create": {
                             "type": "boolean"
                         },
-                        "password": {
-                            "type": "string"
-                        },
                         "refreshToken": {
-                            "type": "string"
-                        },
-                        "username": {
                             "type": "string"
                         }
                     }

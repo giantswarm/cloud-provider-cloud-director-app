@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Removed username/credentials from authentication options to match [cluster chart](https://github.com/giantswarm/cluster-cloud-director/pull/35).
+- Changed the default value of `global.vcdConfig.immutable` from `false` -> `true`.
+- Add quoting for storage profiles in the StorageClass resources.
 
 ## [0.1.2] - 2022-09-08
 

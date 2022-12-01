@@ -15,7 +15,7 @@ global:
     oneArm:
       startIP: "192.168.8.2"  # Will disappear in future versions
       endIP: "192.168.8.100"  # Will disappear in future versions
-    immutable: true
+    immutable: false  # Associated configmaps will use this flag
 
 cloud-director-named-disk-csi-driver:
   basicAuthSecret:

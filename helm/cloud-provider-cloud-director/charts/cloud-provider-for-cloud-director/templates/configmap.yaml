@@ -12,10 +12,9 @@ data:
       host: {{ .site }}
       org: {{ .org }}
       vdc: {{ .ovdc }}
-      vAppName: {{ .vAppName }}
+    loadbalancer:
       network: {{ .ovdcNetwork }}
       vipSubnet: {{ .vipSubnet }}
-    loadbalancer:
       oneArm:
         startIP: {{ .oneArm.startIP }}
         endIP: {{ .oneArm.endIP }}
@@ -24,5 +23,6 @@ data:
         https: 443
       certAlias: {{ .clusterid }}-cert
     clusterid: {{ .clusterid }} 
+    vAppName: {{ .vAppName }}
 immutable: {{ .immutable }}
 {{- end }}

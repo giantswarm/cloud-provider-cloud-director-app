@@ -4,7 +4,7 @@ ccmDeployment:
   dnsPolicy: Default
   imagePullPolicy: IfNotPresent
   image: projects.registry.vmware.com/vmware-cloud-director/cloud-provider-for-cloud-director
-  tag: 1.1.1.latest
+  tag: "1.2.0"
   tolerations:
     - key: node.cloudprovider.kubernetes.io/uninitialized
       value: "true"

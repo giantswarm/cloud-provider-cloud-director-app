@@ -55,4 +55,4 @@ cloud-provider-for-cloud-director:
   
   ccmDeployment:
     image: quay.io/giantswarm/cpi-cloud-director
-    tag: 1.1.1.latest
+    tag: "1.2.0"

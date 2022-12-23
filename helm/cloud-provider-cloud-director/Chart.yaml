@@ -19,4 +19,4 @@ dependencies:
     version: 0.0.1
 restrictions:
   compatibleProviders:
-    - vcd
+    - cloud-director

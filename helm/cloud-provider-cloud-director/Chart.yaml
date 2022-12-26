@@ -17,3 +17,6 @@ dependencies:
     version: 0.0.1
   - name: cloud-provider-for-cloud-director
     version: 0.0.1
+restrictions:
+  compatibleProviders:
+    - cloud-director

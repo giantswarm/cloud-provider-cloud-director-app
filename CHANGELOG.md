@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
+### Added
 
 - Add `compatibleProviders` to `Chart.yaml`.
+- Allow providing arbitrary credentials secret with `.global.basicAuthSecret.name`.
+
+### Removed
+
+- Remove unused top-level credential Secret template (this is cosmetic, the sub-charts secrets remain in place).
 
 ## [0.2.0] - 2022-12-08
 

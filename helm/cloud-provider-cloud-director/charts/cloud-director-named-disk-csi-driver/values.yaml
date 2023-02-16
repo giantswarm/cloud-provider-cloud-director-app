@@ -1,6 +1,6 @@
 controllerStatefulset:
   replicas: 1
-  dnsPolicy: Default
+  dnsPolicy: ClusterFirst
   imagePullPolicy: IfNotPresent
   nodePluginDaemonset:
     dnsPolicy: Default

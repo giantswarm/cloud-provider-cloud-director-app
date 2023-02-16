@@ -1,7 +1,7 @@
 ccmDeployment:
   replicas: 1
   revisionHistoryLimit: 2
-  dnsPolicy: Default
+  dnsPolicy: ClusterFirst
   imagePullPolicy: IfNotPresent
   image: projects.registry.vmware.com/vmware-cloud-director/cloud-provider-for-cloud-director
   tag: "1.2.0"

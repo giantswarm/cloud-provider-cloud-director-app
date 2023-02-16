@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Add `compatibleProviders` to `Chart.yaml`.
-- Set `dnsPolicy` as `ClusterFirst` for CSI controller plugin.
+- Set `dnsPolicy` as `ClusterFirst`.
 
 ## [0.2.0] - 2022-12-08
 

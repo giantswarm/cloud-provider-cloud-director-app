@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add network policy for csi-vcd-controllerplugin to access cloud-director api.
+
 ## [0.2.1] - 2023-02-20
 
 ### Changed

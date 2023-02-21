@@ -1,0 +1,16 @@
+# Allow csi-vcd-controllerplugin to access world (cloud-director api)
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: csi-vcd-controllerplugin
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      app: csi-vcd-controllerplugin
+  egress:
+  - {}
+  policyTypes:
+  - Egress

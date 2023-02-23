@@ -11,10 +11,11 @@ global:
     vipSubnet: ""  # Virtual IP CIDR for the external network
     clusterid: ""  # "Infra Id" field of VCDCluster object in management cluster
     vAppName: ""
-    enableVirtualServiceSharedIP: false  # supported for VCD >= 10.4 - not used yet
+    enableVirtualServiceSharedIP: false  # Multiple VS can share an IP if true.
     oneArm:
-      startIP: "192.168.8.2"  # Will disappear in future versions
-      endIP: "192.168.8.100"  # Will disappear in future versions
+      enabled: true  # Creates a NAT rule instead of direct LB IP if true.
+      startIP: "192.168.8.2"
+      endIP: "192.168.8.100"
     immutable: false  # Associated configmaps will use this flag
 
 cloud-director-named-disk-csi-driver:

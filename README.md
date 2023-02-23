@@ -38,6 +38,22 @@ The storageProfile field corresponds to the Storage Policy in VMware Cloud Direc
 
 When you create a PV, it will appear under Named disks where you can find which VM it is connected to.
 
+## Notes on `enableVirtualServiceSharedIP`
+
+There are 3 possible scenarios for this setting:
+
+- `enableVirtualServiceSharedIP: true` and `oneArm.enabled: false`
+
+A service type load balancer with multiple ports creates virtual services that share an IP from the Edge external pool. The environment must support virtual service shared IP (VCD 10.4 or xxx flag in AVI load balancer).
+
+- `enableVirtualServiceSharedIP: true` and `oneArm.enabled: true`
+
+A service type load balancer with multiple ports creates virtual services that share an internal IP (usually 192.168.8.x) with a NAT rule to map an IP from the Edge external pool to the internal IP. The environment must support virtual service shared IP (VCD 10.4 or xxx flag in AVI load balancer).
+
+- `enableVirtualServiceSharedIP: false` and `oneArm.enabled: true | false`
+
+A service type load balancer with multiple ports creates virtual services with different internal IPs (usually 192.168.8.x) with NAT rules to map an IP from the Edge external pool to the internal IPs. Compatible with versions older than VCD 10.4.
+
 ## How are the charts created
 
 There are no upstream charts available so these charts are created manually based on the upstream manifests.

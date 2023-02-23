@@ -160,6 +160,9 @@
                         "oneArm": {
                             "type": "object",
                             "properties": {
+                                "enabled": {
+                                    "type": "boolean"
+                                },
                                 "endIP": {
                                     "type": "string"
                                 },

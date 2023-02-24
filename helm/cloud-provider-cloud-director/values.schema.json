@@ -5,14 +5,6 @@
         "cloud-director-named-disk-csi-driver": {
             "type": "object",
             "properties": {
-                "basicAuthSecret": {
-                    "type": "object",
-                    "properties": {
-                        "create": {
-                            "type": "boolean"
-                        }
-                    }
-                },
                 "controllerStatefulset": {
                     "type": "object",
                     "properties": {
@@ -110,14 +102,6 @@
         "cloud-provider-for-cloud-director": {
             "type": "object",
             "properties": {
-                "basicAuthSecret": {
-                    "type": "object",
-                    "properties": {
-                        "create": {
-                            "type": "boolean"
-                        }
-                    }
-                },
                 "ccmDeployment": {
                     "type": "object",
                     "properties": {
@@ -139,6 +123,10 @@
                     "properties": {
                         "create": {
                             "type": "boolean"
+                        },
+                        "name": {
+                            "type": "string",
+                            "default": "vcloud-basic-auth"
                         },
                         "refreshToken": {
                             "type": "string"

@@ -16,6 +16,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Remove unused top-level credential Secret template (this is cosmetic, the sub-charts secrets remain in place).
 
+## [0.2.3] - 2023-02-23
+
+### Added
+
+- Add support for `enableVirtualServiceSharedIP`.
+
+## [0.2.2] - 2023-02-21
+
+### Added
+
+- Add network policy for csi-vcd-controllerplugin to access cloud-director api.
+
+## [0.2.1] - 2023-02-20
+
+### Changed
+
+- Add `compatibleProviders` to `Chart.yaml`.
+- Set `dnsPolicy` as `ClusterFirst`.
+- Fix IP types of nodes for multi-nic case.
+
 ## [0.2.0] - 2022-12-08
 
 ### Changed
@@ -55,7 +75,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial chart implementation.
 
-[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.2...v0.2.3
+[0.2.2]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.1...v0.2.2
+[0.2.1]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.1.1...v0.1.2

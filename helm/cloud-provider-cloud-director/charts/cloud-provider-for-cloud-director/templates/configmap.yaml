@@ -15,9 +15,12 @@ data:
     loadbalancer:
       network: {{ .ovdcNetwork }}
       vipSubnet: {{ .vipSubnet }}
+      enableVirtualServiceSharedIP: {{ .enableVirtualServiceSharedIP }}
+      {{- if or (.oneArm.enabled) (not .enableVirtualServiceSharedIP) }}
       oneArm:
         startIP: {{ .oneArm.startIP }}
         endIP: {{ .oneArm.endIP }}
+      {{- end }}
       ports:
         http: 80
         https: 443

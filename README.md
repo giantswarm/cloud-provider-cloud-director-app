@@ -42,7 +42,7 @@ When you create a PV, it will appear under Named disks where you can find which 
 
 There are 3 possible scenarios for this setting:
 
-- `enableVirtualServiceSharedIP: true` and `oneArm.enabled: false`
+- `enableVirtualServiceSharedIP: true` and `oneArm.enabled: false` **(default value)**
 
 A service type load balancer with multiple ports creates virtual services that share an IP from the Edge external pool. The environment must support virtual service shared IP (VCD 10.4 or xxx flag in AVI load balancer).
 

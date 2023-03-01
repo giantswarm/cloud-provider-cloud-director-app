@@ -7,9 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Allow providing arbitrary credentials secret with `.global.basicAuthSecret.name`.
+
+### Fixed
+
+- Fix credential Secret creation check to use `global` values.
+
+### Removed
+
+- Remove unused top-level credential Secret template (this is cosmetic, the sub-charts secrets remain in place).
+
 ### Changed
 
 - Change `enableVirtualServiceSharedIP` default value to `true` and `oneArm.enabled` to `false`.
+
 
 ## [0.2.3] - 2023-02-23
 

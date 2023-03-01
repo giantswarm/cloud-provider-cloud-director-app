@@ -1,7 +1,8 @@
 global:
   basicAuthSecret:
     create: true
-    refreshToken: ""
+    name: vcloud-basic-auth
+    refreshToken: ""  # Required only when `create: true`
 
   vcdConfig:
     site: ""  # VCD endpoint with the format https://VCD_HOST. No trailing '/'
@@ -19,9 +20,6 @@ global:
     immutable: false  # Associated configmaps will use this flag
 
 cloud-director-named-disk-csi-driver:
-  basicAuthSecret:
-    create: false  # overrides create value in global vars
-
   controllerStatefulset:
     csiAttacher:
       image: quay.io/giantswarm/csi-attacher
@@ -50,10 +48,6 @@ cloud-director-named-disk-csi-driver:
       fileSystem: "ext4"
 
 cloud-provider-for-cloud-director:
-  
-  basicAuthSecret:
-    create: false  # overrides create value in global vars
-  
   ccmDeployment:
     image: quay.io/giantswarm/cpi-cloud-director
     tag: "1.2.0-de4b612"

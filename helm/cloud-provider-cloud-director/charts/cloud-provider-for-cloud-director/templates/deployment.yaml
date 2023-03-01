@@ -58,4 +58,4 @@ spec:
             name: vcloud-ccm-configmap
         - name: vcloud-ccm-vcloud-basic-auth-volume
           secret:
-            secretName: vcloud-basic-auth
+            secretName: {{ .Values.global.basicAuthSecret.name }}

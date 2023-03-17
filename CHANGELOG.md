@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.4] - 2023-03-17
+
 ### Added
 
 - Allow providing arbitrary credentials secret with `.global.basicAuthSecret.name`.
@@ -83,7 +85,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial chart implementation.
 
-[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.3...HEAD
+[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.4...HEAD
+[0.2.4]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.3...v0.2.4
 [0.2.3]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.0...v0.2.1

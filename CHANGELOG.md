@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Added `controlplane` in the tolerations to support 1.24 which no longer adds the `master` label.
+
 ## [0.2.5] - 2023-03-17
 
 ### Fixed

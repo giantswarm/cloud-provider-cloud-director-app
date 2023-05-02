@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update csi plugin for cloud-director image to inject cluster id as description to named disks.
+
 ## [0.2.6] - 2023-04-04
 
 ### Changed

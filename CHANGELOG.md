@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.7] - 2023-05-02
+
 ### Changed
 
 - Update csi plugin for cloud-director image to inject cluster id as description to named disks.
@@ -101,7 +103,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial chart implementation.
 
-[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.6...HEAD
+[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.7...HEAD
+[0.2.7]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.6...v0.2.7
 [0.2.6]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.5...v0.2.6
 [0.2.5]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.3...v0.2.4

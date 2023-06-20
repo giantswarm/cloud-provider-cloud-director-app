@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update `quay.io/giantswarm/csi-cloud-director` version for `csi-vcd-nodeplugin` to support newer k8s versions.
+
 ## [0.2.7] - 2023-05-02
 
 ### Changed

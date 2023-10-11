@@ -18,6 +18,10 @@ spec:
         {{- include "labels.common" . | nindent 8 }}
     spec:
       serviceAccount: csi-vcd-controller-sa
+      securityContext:
+      {{- with .Values.podSecurityContext }}
+        {{- . | toYaml | nindent 8 }}
+      {{- end }}
       dnsPolicy: {{ .Values.controllerStatefulset.dnsPolicy }}
       containers:
         - name: csi-attacher
@@ -33,6 +37,10 @@ spec:
           volumeMounts:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
+          {{- with .Values.containerSecurityContext }}
+          securityContext:
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
         - name: csi-provisioner
           image: {{ .Values.controllerStatefulset.csiProvisioner.image }}:{{ .Values.controllerStatefulset.csiProvisioner.tag }}
           imagePullPolicy: {{ .Values.controllerStatefulset.imagePullPolicy }}
@@ -47,6 +55,10 @@ spec:
           volumeMounts:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
+          {{- with .Values.containerSecurityContext }}
+          securityContext:
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
         - name: vcd-csi-plugin
           securityContext:
             privileged: true

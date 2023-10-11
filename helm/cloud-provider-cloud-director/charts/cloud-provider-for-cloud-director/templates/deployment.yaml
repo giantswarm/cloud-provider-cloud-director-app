@@ -26,6 +26,9 @@ spec:
         runAsUser: 1000
         runAsGroup: 3000
         fsGroup: 2000
+        {{- with .Values.podSecurityContext }}
+          {{- . | toYaml | nindent 8 }}
+        {{- end }}
       containers:
         - name: vmware-cloud-director-ccm
           image: {{ .Values.ccmDeployment.image }}:{{ .Values.ccmDeployment.tag }}
@@ -40,6 +43,10 @@ spec:
               mountPath: /etc/kubernetes/vcloud
             - name: vcloud-ccm-vcloud-basic-auth-volume
               mountPath: /etc/kubernetes/vcloud/basic-auth
+          {{- with .Values.containerSecurityContext }}
+          securityContext:
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
       {{- with .Values.ccmDeployment.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}

@@ -18,7 +18,7 @@ nodeDaemonset:
   dnsPolicy: Default
   imagePullPolicy: IfNotPresent
   nodeDriverRegistrar:
-    image: k8s.gcr.io/sig-storage/csi-node-driver-registrar
+    image: registry.k8s.io/sig-storage/csi-node-driver-registrar
     tag: v2.2.0
   csiPlugin:
     image: projects.registry.vmware.com/vmware-cloud-director/cloud-director-named-disk-csi-driver

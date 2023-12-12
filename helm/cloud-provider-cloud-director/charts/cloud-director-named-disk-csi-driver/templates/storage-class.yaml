@@ -3,10 +3,8 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  {{- if .delete.isDefault }}
   annotations:
-    storageclass.kubernetes.io/is-default-class: "true"
-  {{- end }}
+    storageclass.kubernetes.io/is-default-class: {{ .delete.isDefault | quote }}
   name: csi-vcd-sc-delete
 provisioner: named-disk.csi.cloud-director.vmware.com
 reclaimPolicy: Delete
@@ -17,10 +15,8 @@ parameters:
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  {{- if .retain.isDefault }}
   annotations:
-    storageclass.kubernetes.io/is-default-class: "true"
-  {{- end }}
+    storageclass.kubernetes.io/is-default-class: {{ .retain.isDefault | quote }}
   name: csi-vcd-sc-retain
 provisioner: named-disk.csi.cloud-director.vmware.com
 reclaimPolicy: Retain

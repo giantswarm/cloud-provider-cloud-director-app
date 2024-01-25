@@ -133,14 +133,6 @@
                         }
                     }
                 },
-                "podSecurityStandards": {
-                    "type": "object",
-                    "properties": {
-                        "enforced": {
-                            "type": "boolean"
-                        }
-                    }
-                },
                 "vcdConfig": {
                     "type": "object",
                     "properties": {

@@ -4,9 +4,6 @@ global:
     name: vcloud-basic-auth
     refreshToken: ""  # Required only when `create: true`
 
-  podSecurityStandards:
-    enforced: false
-
   vcdConfig:
     site: ""  # VCD endpoint with the format https://VCD_HOST. No trailing '/'
     org: ""  # VCD organization name where the cluster should be deployed

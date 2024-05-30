@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.11] - 2024-05-30
+
 ### Changed
 
 - Switch all images to Azure CR.
@@ -126,7 +128,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial chart implementation.
 
-[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.10...HEAD
+[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.11...HEAD
+[0.2.11]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.10...v0.2.11
 [0.2.10]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.9...v0.2.10
 [0.2.9]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.8...v0.2.9
 [0.2.8]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.7...v0.2.8

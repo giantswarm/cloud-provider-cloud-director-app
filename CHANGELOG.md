@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Switch all images to Azure CR.
+- Consume retagged upstream images of cpi and csi.
 
 ## [0.2.10] - 2024-02-13
 

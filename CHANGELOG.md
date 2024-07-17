@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Rollback CPI from `1.6.0` to `1.5.0` due to IP Spaces incompatibility.
+
 ## [0.2.11] - 2024-05-30
 
 ### Changed

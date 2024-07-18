@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2024-07-18
+
 ### Changed
 
 - Rollback CPI from `1.6.0` to `1.5.0` due to IP Spaces incompatibility.
@@ -132,7 +134,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial chart implementation.
 
-[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.11...HEAD
+[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.11...v0.3.0
 [0.2.11]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.10...v0.2.11
 [0.2.10]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.9...v0.2.10
 [0.2.9]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.8...v0.2.9

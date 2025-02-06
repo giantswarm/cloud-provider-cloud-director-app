@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update to `1.6.0-gs` of CPI. (Upstream `1.6.0` plus custom patch from previous release.)
+
 ## [0.3.1] - 2024-07-24
 
 ### Changed

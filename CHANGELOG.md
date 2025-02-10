@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2025-02-10
+
 ### Changed
 
 - Update to `1.6.1-gs` of CPI. This includes [upstream version `1.6.1`](https://github.com/vmware/cloud-provider-for-cloud-director/releases/tag/1.6.1) plus [this unreleased patch](https://github.com/vmware/cloud-provider-for-cloud-director/pull/376) of CPI to address LB health monitor upgrade issue.
@@ -151,7 +153,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial chart implementation.
 
-[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/giantswarm/cloud-provider-cloud-director-app/compare/v0.2.11...v0.3.0

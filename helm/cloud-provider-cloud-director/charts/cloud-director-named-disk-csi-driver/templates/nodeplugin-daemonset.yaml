@@ -57,7 +57,6 @@ spec:
             - --nodeid=$(NODE_ID)
             - --endpoint=$(CSI_ENDPOINT)
             - --cloud-config=/etc/kubernetes/vcloud/vcloud-csi-config.yaml
-            - --v=5
           env:
             - name: NODE_ID
               valueFrom:

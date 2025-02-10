@@ -71,7 +71,6 @@ spec:
             - /opt/vcloud/bin/cloud-director-named-disk-csi-driver
             - --cloud-config=/etc/kubernetes/vcloud/vcloud-csi-config.yaml
             - --endpoint=$(CSI_ENDPOINT)
-            - --v=5
           env:
             - name: NODE_ID
               valueFrom:

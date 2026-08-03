@@ -115,6 +115,36 @@
                 }
             }
         },
+        "containerSecurityContext": {
+            "type": "object",
+            "properties": {
+                "allowPrivilegeEscalation": {
+                    "type": "boolean"
+                },
+                "capabilities": {
+                    "type": "object",
+                    "properties": {
+                        "drop": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "seccompProfile": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "global": {
             "type": "object",
             "properties": {
@@ -125,8 +155,7 @@
                             "type": "boolean"
                         },
                         "name": {
-                            "type": "string",
-                            "default": "vcloud-basic-auth"
+                            "type": "string"
                         },
                         "refreshToken": {
                             "type": "string"
@@ -183,6 +212,22 @@
                             "type": "string"
                         },
                         "vipSubnet": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "podSecurityContext": {
+            "type": "object",
+            "properties": {
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "seccompProfile": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
                             "type": "string"
                         }
                     }

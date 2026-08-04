@@ -18,6 +18,6 @@ Common labels
 */}}
 {{- define "labels.common" -}}
 app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
-app.kubernetes.io/version: {{ .Chart.Version | quote }}
+app.kubernetes.io/version: {{ .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" | quote }}
 helm.sh/chart: {{ include "chart" . | quote }}
 {{- end -}}

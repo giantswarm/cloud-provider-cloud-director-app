@@ -19,7 +19,7 @@ nodeDaemonset:
   imagePullPolicy: IfNotPresent
   nodeDriverRegistrar:
     image: registry.k8s.io/sig-storage/csi-node-driver-registrar
-    tag: v2.2.0
+    tag: v2.18.0
   csiPlugin:
     image: projects.registry.vmware.com/vmware-cloud-director/cloud-director-named-disk-csi-driver
     tag: 1.2.0.latest

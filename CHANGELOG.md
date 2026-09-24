@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update architect to v10.10.0 (giantswarm/cloud-provider-cloud-director-app#182)
+
 ## [0.5.2] - 2026-08-04
 
 ### Changed

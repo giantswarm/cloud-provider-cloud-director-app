@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore(deps): update gsoci.azurecr.io/giantswarm/cloud-director-named-disk-csi-driver docker tag to v1.6.1
 - chore(deps): update projects.registry.vmware.com/vmware-cloud-director/cloud-provider-for-cloud-director docker tag to v1.6.2
 - chore(deps): update registry.k8s.io/sig-storage/csi-node-driver-registrar docker tag to v2.18.0
+- chore(deps): update registry.k8s.io/sig-storage/csi-attacher docker tag to v4
 
 ## [0.5.2] - 2026-08-04
 

@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update architect to v10.11.1 (giantswarm/cloud-provider-cloud-director-app#183)
 - Update architect to v10.12.0 (giantswarm/cloud-provider-cloud-director-app#185)
 - Update architect to v10.12.1 (giantswarm/cloud-provider-cloud-director-app#186)
+- chore(deps): update gsoci.azurecr.io/giantswarm/cloud-director-named-disk-csi-driver docker tag to v1.6.1
 
 ## [0.5.2] - 2026-08-04
 

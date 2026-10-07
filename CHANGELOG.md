@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Values: Downgrade images to compatible versions.
+
 ## [0.6.0] - 2026-10-06
 
 ### Fixed

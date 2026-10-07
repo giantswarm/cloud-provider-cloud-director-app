@@ -12,7 +12,7 @@ controllerStatefulset:
     tag: v2.2.2
   csiPlugin:
     image: projects.registry.vmware.com/vmware-cloud-director/cloud-director-named-disk-csi-driver
-    tag: 1.6.0
+    tag: 1.6.1
 
 nodeDaemonset:
   dnsPolicy: Default
@@ -22,7 +22,7 @@ nodeDaemonset:
     tag: v2.2.0
   csiPlugin:
     image: projects.registry.vmware.com/vmware-cloud-director/cloud-director-named-disk-csi-driver
-    tag: 1.6.0
+    tag: 1.6.1
 
 csiDriver:
   attachRequired: true
